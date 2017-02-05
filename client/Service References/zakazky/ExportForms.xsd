@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://www.ness.cz/schemas/isvzus" elementFormDefault="qualified" targetNamespace="http://www.ness.cz/schemas/isvzus" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://import.vestnikverejnychzakazek.cz/ExportForms.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="GetVersionRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UserIdRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetVersionRequest" nillable="true" type="tns:GetVersionRequest" />
+  <xs:complexType name="UserIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserIdRequest" nillable="true" type="tns:UserIdRequest" />
+  <xs:complexType name="GetVersionResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Version" nillable="true" type="tns:AppVersion" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetVersionResponse" nillable="true" type="tns:GetVersionResponse" />
+  <xs:complexType name="Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Response" nillable="true" type="tns:Response" />
+  <xs:complexType name="AppVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SupportedDocumentFormats" nillable="true" type="tns:ArrayOfDocFormat" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppVersion" nillable="true" type="tns:AppVersion" />
+  <xs:complexType name="ArrayOfDocFormat">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocFormat" nillable="true" type="tns:DocFormat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocFormat" nillable="true" type="tns:ArrayOfDocFormat" />
+  <xs:complexType name="DocFormat">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Namespace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupportedForms" nillable="true" type="tns:ArrayOfForm" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XsdPath" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocFormat" nillable="true" type="tns:DocFormat" />
+  <xs:complexType name="ArrayOfForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Form" nillable="true" type="tns:Form" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfForm" nillable="true" type="tns:ArrayOfForm" />
+  <xs:complexType name="Form">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="XsdName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Form" nillable="true" type="tns:Form" />
+  <xs:complexType name="ListFormsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UserIdRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="QueryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="QueryParameters" nillable="true" type="tns:ArrayOfQueryParameter" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListFormsRequest" nillable="true" type="tns:ListFormsRequest" />
+  <xs:complexType name="ArrayOfQueryParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QueryParameter" nillable="true" type="tns:QueryParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQueryParameter" nillable="true" type="tns:ArrayOfQueryParameter" />
+  <xs:complexType name="QueryParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QueryParameter" nillable="true" type="tns:QueryParameter" />
+  <xs:complexType name="ListFormsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Forms" nillable="true" type="tns:ArrayOfFormInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListFormsResponse" nillable="true" type="tns:ListFormsResponse" />
+  <xs:complexType name="ArrayOfFormInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FormInfo" nillable="true" type="tns:FormInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFormInfo" nillable="true" type="tns:ArrayOfFormInfo" />
+  <xs:complexType name="FormInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FormInfo" nillable="true" type="tns:FormInfo" />
+  <xs:complexType name="GetFormDocumentRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:UserIdRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FormId" type="xs:int" />
+          <xs:element minOccurs="0" name="FormatVersion" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFormDocumentRequest" nillable="true" type="tns:GetFormDocumentRequest" />
+  <xs:complexType name="GetFormDocumentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FormDocument" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFormDocumentResponse" nillable="true" type="tns:GetFormDocumentResponse" />
+</xs:schema>

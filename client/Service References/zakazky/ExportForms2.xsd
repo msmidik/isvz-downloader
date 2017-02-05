@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ness.cz/schemas/isvzus/ExportForms" elementFormDefault="qualified" targetNamespace="http://www.ness.cz/schemas/isvzus/ExportForms" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://import.vestnikverejnychzakazek.cz/ExportForms.svc?xsd=xsd2" namespace="http://www.ness.cz/schemas/isvzus" />
+  <xs:element name="GetVersion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://www.ness.cz/schemas/isvzus" minOccurs="0" name="request" nillable="true" type="q1:GetVersionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://www.ness.cz/schemas/isvzus" minOccurs="0" name="GetVersionResult" nillable="true" type="q2:GetVersionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListForms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://www.ness.cz/schemas/isvzus" minOccurs="0" name="request" nillable="true" type="q3:ListFormsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListFormsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://www.ness.cz/schemas/isvzus" minOccurs="0" name="ListFormsResult" nillable="true" type="q4:ListFormsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFormDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://www.ness.cz/schemas/isvzus" minOccurs="0" name="request" nillable="true" type="q5:GetFormDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFormDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://www.ness.cz/schemas/isvzus" minOccurs="0" name="GetFormDocumentResult" nillable="true" type="q6:GetFormDocumentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

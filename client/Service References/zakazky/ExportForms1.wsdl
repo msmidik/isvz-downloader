@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.ness.cz/schemas/isvzus/ExportForms" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ness.cz/schemas/isvzus/ExportForms" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.ness.cz/schemas/isvzus/ExportForms/Imports">
+      <xsd:import schemaLocation="http://import.vestnikverejnychzakazek.cz/ExportForms.svc?xsd=xsd0" namespace="http://www.ness.cz/schemas/isvzus/ExportForms" />
+      <xsd:import schemaLocation="http://import.vestnikverejnychzakazek.cz/ExportForms.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://import.vestnikverejnychzakazek.cz/ExportForms.svc?xsd=xsd2" namespace="http://www.ness.cz/schemas/isvzus" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IExportForms_GetVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="IExportForms_GetVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExportForms_ListForms_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListForms" />
+  </wsdl:message>
+  <wsdl:message name="IExportForms_ListForms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListFormsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExportForms_GetFormDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormDocument" />
+  </wsdl:message>
+  <wsdl:message name="IExportForms_GetFormDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormDocumentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IExportForms">
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="http://www.ness.cz/schemas/isvzus/ExportForms/IExportForms/GetVersion" message="tns:IExportForms_GetVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.ness.cz/schemas/isvzus/ExportForms/IExportForms/GetVersionResponse" message="tns:IExportForms_GetVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListForms">
+      <wsdl:input wsaw:Action="http://www.ness.cz/schemas/isvzus/ExportForms/IExportForms/ListForms" message="tns:IExportForms_ListForms_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.ness.cz/schemas/isvzus/ExportForms/IExportForms/ListFormsResponse" message="tns:IExportForms_ListForms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormDocument">
+      <wsdl:input wsaw:Action="http://www.ness.cz/schemas/isvzus/ExportForms/IExportForms/GetFormDocument" message="tns:IExportForms_GetFormDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.ness.cz/schemas/isvzus/ExportForms/IExportForms/GetFormDocumentResponse" message="tns:IExportForms_GetFormDocument_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
